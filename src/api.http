@@ -1,0 +1,24 @@
+GET http://127.0.0.1:3000/events 
+
+###
+POST http://127.0.0.1:3000/events
+Content-Type: application/json
+
+{
+    "name": "Algo para o name",
+    "views" : 1
+
+}
+
+
+###
+PATCH http://127.0.0.1:3000/events/ID_QUALQUER
+Content-Type: application/json
+
+{
+    "views" : 2
+}
+
+
+###
+DELETE http://127.0.0.1:3000/events/ID_QUALQUER

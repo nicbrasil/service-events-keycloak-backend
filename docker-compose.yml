@@ -1,0 +1,9 @@
+version: '3'
+services:
+  service-events-backend:
+    restart: always
+    container_name: service-events-backend
+    build: .
+    environment:
+      - NODE_ENV=production
+    command: npm run start
