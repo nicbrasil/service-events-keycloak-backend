@@ -24,7 +24,7 @@ export class Event {
   sessionId: string;
 
   @Column({ name: 'event_time' })
-  eventTime: string;
+  eventTime: number;
 
   @Column({ name: 'type' })
   type: string;

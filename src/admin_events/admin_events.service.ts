@@ -12,23 +12,7 @@ export class AdminEventsService {
   ) {}
 
   async findAll(): Promise<AdminEvent[]> {
-    return await this.adminEventRepository.find({
-      select: [
-        'id',
-        'adminEventTime',
-        'realmId',
-        'operationType',
-        'authRealmId',
-        'authClientId',
-        'authUserId',
-        'ipAddress',
-        'resourcePath',
-        'error',
-        'resourceType',
-        'error',
-        'resourcePath',
-      ],
-    });
+    return await this.adminEventRepository.find({});
   }
 
   async findOne(id: string): Promise<any | null> {
