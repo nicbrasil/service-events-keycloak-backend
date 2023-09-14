@@ -5,9 +5,10 @@ import { ScheduleService } from './schedule.service';
 import { EventsService } from 'src/events/events.service';
 import { EventsModule } from 'src/events/events.module';
 import { AdminEventsModule } from 'src/admin_events/admin_events.module';
-
+import { ScheduleModule as BaseScheduleModule } from '@nestjs/schedule';
 @Module({
   imports: [
+    BaseScheduleModule.forRoot(),
     TypeOrmModule.forFeature([KeycloakLastEventTime]),
     EventsModule,
     AdminEventsModule,

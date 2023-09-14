@@ -16,6 +16,8 @@ export class AdminEventsService {
   async findAll(where: any = {}): Promise<AdminEvent[]> {
     return await this.adminEventRepository.find({
       ...where,
+      order: { adminEventTime: 'ASC' },
+
     });
   }
 
@@ -26,10 +28,12 @@ export class AdminEventsService {
   async getAdminEventsLastTime(lastTime: number): Promise<AdminEvent[]> {
     return await this.adminEventRepository.find({
       where: { adminEventTime: MoreThan(lastTime) },
+      take: 100,
+      order: { adminEventTime: 'ASC' },
     });
   }
 
-  async emitEvent(event: AdminEvent) {
+  async emitAdminEvent(event: AdminEvent) {
     this.rabbitClient.emit('admin-eventos-keycloak', { id: event.id });
   }
 }

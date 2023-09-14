@@ -22,8 +22,10 @@ export class AdminEventsHandlersController {
   async separteEventsByResource(data: any) {
     const event: AdminEvent = await this.adminEventsService.findOne(data.id);
     if (!event) return 'ok';
-    console.log('evento encontrado', event);
 
+    console.log(
+      `Evento recebido: ${event.id} - ${event.operationType} - ${event.resourceType}`,
+    );
     if (event.resourceType == 'USER') {
       console.log('Evento de usuário');
 
@@ -36,6 +38,7 @@ export class AdminEventsHandlersController {
       };
       await this.amqpClient.emit('eventos-users', user);
     }
+
     return 'ok';
   }
 }
