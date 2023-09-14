@@ -14,5 +14,6 @@ import { AdminEventsHandlersController } from './admin_events.handlers.controlle
   ],
   controllers: [AdminEventsController, AdminEventsHandlersController],
   providers: [AdminEventsService],
+  exports: [AdminEventsService],
 })
 export class AdminEventsModule {}

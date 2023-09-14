@@ -4,6 +4,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import * as path from 'path';
 import { EventsModule } from './events/events.module';
 import { AdminEventsModule } from './admin_events/admin_events.module';
+import { KeycloakLastEventTime } from './shared/entities/keycloak_last_event_time.entity';
+import { ScheduleModule } from './schedule/schedule.module';
 
 @Module({
   imports: [
@@ -32,6 +34,7 @@ import { AdminEventsModule } from './admin_events/admin_events.module';
     }),
     EventsModule,
     AdminEventsModule,
+    ScheduleModule,
   ],
 })
 export class AppModule {}

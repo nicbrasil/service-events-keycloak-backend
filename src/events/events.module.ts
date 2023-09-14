@@ -4,8 +4,6 @@ import { EventsController } from './events.controller';
 import { EventsService } from './events.service';
 import { Event } from './entities/event.entity';
 import { KeycloakModule } from 'src/keycloak/keycloak.module';
-import { ClientsModule, Transport } from '@nestjs/microservices';
-import { ConfigService } from '@nestjs/config';
 import { EventsHandlersController } from './events.handlers.controller';
 import NicRabbitmqTransport from 'src/shared/amqp-connect/transports/nic-rabbitmq.transport';
 @Module({
@@ -16,5 +14,6 @@ import NicRabbitmqTransport from 'src/shared/amqp-connect/transports/nic-rabbitm
   ],
   controllers: [EventsController, EventsHandlersController],
   providers: [EventsService],
+  exports: [EventsService],
 })
 export class EventsModule {}
