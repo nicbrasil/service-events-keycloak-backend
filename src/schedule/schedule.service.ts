@@ -90,9 +90,9 @@ export class ScheduleService implements OnModuleInit {
     return lastEventTime;
   }
 
-  @Interval(10000) // Executa a cada 30 segundos
+  @Interval(5000) // Executa a cada 5 segundos
   async refreshEvents() {
     console.log(new Date(), 'Iniciando refreshEvents');
-    // this.readAllEvents();
+    this.readAllEvents();
   }
 }
