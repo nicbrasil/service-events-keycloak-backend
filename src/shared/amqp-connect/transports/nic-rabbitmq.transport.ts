@@ -30,6 +30,7 @@ export default class NicRabbitmqTransport extends ClientRMQ {
       exchange: 'direct-exchange', // Substitua pelo nome do exchange desejado
       persistent: true,
       durable: true,
+      prefetchCount: 1,
       ...options,
       queue,
     };
