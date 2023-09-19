@@ -1,12 +1,6 @@
-import { Controller, Get, Inject, Param } from '@nestjs/common';
-import { Roles, Resources, Unprotected } from '@nicbrasil/nickeycloak-nestjs';
+import { Controller, Inject } from '@nestjs/common';
 
-import {
-  ClientProxy,
-  MessagePattern,
-  RmqContext,
-  Transport,
-} from '@nestjs/microservices';
+import { ClientProxy, MessagePattern, Transport } from '@nestjs/microservices';
 import { AdminEvent } from './entities/admin_event.entity';
 import { AdminEventsService } from './admin_events.service';
 
