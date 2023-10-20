@@ -1,8 +1,8 @@
 version: '3'
 services:
-  service-events-backend:
+  service-events-keycloak-backend:
     restart: always
-    container_name: service-events-backend
+    container_name: service-events-keycloak-backend
     build: .
     environment:
       - NODE_ENV=production

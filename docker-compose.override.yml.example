@@ -1,7 +1,7 @@
 version: "3"
 
 services:
-  service-events-backend:
+  service-events-keycloak-backend:
     ports:
       - "3000:3000"
    
