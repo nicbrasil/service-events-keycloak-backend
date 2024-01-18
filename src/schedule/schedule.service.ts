@@ -21,7 +21,7 @@ export class ScheduleService implements OnModuleInit {
   }
 
   async readAllEvents() {
-    console.log(new Date(), 'Iniciando leitura dos eventos');
+    // console.log(new Date(), 'Iniciando leitura dos eventos');
 
     await this.getEvents().then(async (events) => {
       console.log(
@@ -33,24 +33,24 @@ export class ScheduleService implements OnModuleInit {
         this.eventsService.emitEvent(event);
         await this.saveLastEventTime('client', event.eventTime);
       }
-      console.log(new Date(), 'Quantidade de eventos lidos', events.length);
+      // console.log(new Date(), 'Quantidade de eventos lidos', events.length);
     });
 
     this.getAdminEvents().then(async (events) => {
-      console.log(
-        new Date(),
-        'Iniciando leitura dos eventos ADMIN: ',
-        events.length,
-      );
+      // console.log(
+      //   new Date(),
+      //   'Iniciando leitura dos eventos ADMIN: ',
+      //   events.length,
+      // );
       for (const event of events) {
         this.adminEventsService.emitAdminEvent(event);
         await this.saveLastEventTime('admin', event.adminEventTime);
       }
-      console.log(
-        new Date(),
-        'Quantidade de eventos ADMIN lidos',
-        events.length,
-      );
+      // console.log(
+      //   new Date(),
+      //   'Quantidade de eventos ADMIN lidos',
+      //   events.length,
+      // );
     });
   }
   async getEvents() {
@@ -92,7 +92,7 @@ export class ScheduleService implements OnModuleInit {
 
   @Interval(5000) // Executa a cada 5 segundos
   async refreshEvents() {
-    console.log(new Date(), 'Iniciando refreshEvents');
+    // console.log(new Date(), 'Iniciando refreshEvents');
     this.readAllEvents();
   }
 }
