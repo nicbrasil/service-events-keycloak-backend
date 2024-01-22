@@ -24,11 +24,11 @@ export class ScheduleService implements OnModuleInit {
     // console.log(new Date(), 'Iniciando leitura dos eventos');
 
     await this.getEvents().then(async (events) => {
-      console.log(
-        new Date(),
-        'Iniciando leitura dos eventos do client: ',
-        events.length,
-      );
+      // console.log(
+      //   new Date(),
+      //   'Iniciando leitura dos eventos do client: ',
+      //   events.length,
+      // );
       for (const event of events) {
         this.eventsService.emitEvent(event);
         await this.saveLastEventTime('client', event.eventTime);
